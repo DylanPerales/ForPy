@@ -15,7 +15,8 @@
 #
 # Error messages are stored in file 'error.log'.
 #
- 
+
+from __future__ import print_function
 import socket
 import sys
 import thread
