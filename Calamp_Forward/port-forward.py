@@ -54,7 +54,7 @@ def server(*settings):
  
 def forward(source, destination):
     today = datetime.date.today()
-    f = open('port-forward_' + today.strftime(%Y%b%d) + '.log', 'w')
+    f = open('port-forward_' + today.strftime('%Y%b%d') + '.log', 'w')
     string = ' '
     while string:
         string = source.recv(1024)
