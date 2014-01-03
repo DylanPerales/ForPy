@@ -54,13 +54,13 @@ def server(*settings):
  
 def forward(source, destination):
     today = datetime.date.today()
-    f = open('port-forward_' + today.strftime('%Y%b%d') + '.log', 'w')
+    log = ('port-forward_' + today.strftime('%Y%b%d') + '.log')
     string = ' '
     while string:
         string = source.recv(1024)
         if string:
             destination.sendall(string)
-            f.write('Forwarding: ' + source.getpeername() + ' Port: ' + source.getsockname() + '\n')
+            print('Forwarding: ' + source.getpeername() + ' Port: ' + source.getsockname(), file=log)
         else:
             source.shutdown(socket.SHUT_RD)
             destination.shutdown(socket.SHUT_WR)
