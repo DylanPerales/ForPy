@@ -60,7 +60,7 @@ def forward(source, destination):
         string = source.recv(1024)
         if string:
             destination.sendall(string)
-			f.write('Forwarding: ' + source.getpeername() + ' Port: ' + source.getsockname() + '\n')
+            f.write('Forwarding: ' + source.getpeername() + ' Port: ' + source.getsockname() + '\n')
         else:
             source.shutdown(socket.SHUT_RD)
             destination.shutdown(socket.SHUT_WR)
