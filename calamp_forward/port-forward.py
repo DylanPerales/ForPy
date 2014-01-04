@@ -1,7 +1,3 @@
-# Author: Mario Scondo (www.Linux-Support.com)
-# Date: 2010-01-08
-# Script template by Stephen Chappell
-#
 # This script forwards a number of configured local ports
 # to local or remote socket servers.
 #
@@ -14,7 +10,6 @@
 # and stop the application by keying in <ctrl-c>.
 #
 # Error messages are stored in file 'error.log'.
-#
 
 from __future__ import print_function
 import socket
@@ -65,6 +60,5 @@ def forward(source, destination):
         else:
             source.shutdown(socket.SHUT_RD)
             destination.shutdown(socket.SHUT_WR)
-	f.close()
 if __name__ == '__main__':
     main('port-forward.config', 'error.log')
