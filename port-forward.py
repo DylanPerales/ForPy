@@ -6,7 +6,7 @@ import os
 
 # Settings
 bufsize = 1024 # Modify to suit your needs
-targetHost = "127.0.0.1"
+targetHost = "127.0.0.1" # Modify to remote Address OR LOOP WILL OCCUR!!!
 listenPort = 2500
 pkts = 0
 if not os.path.exists('log'):
