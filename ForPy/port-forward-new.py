@@ -7,7 +7,7 @@ listenPort = 2500
 def forward(data, port):
     print "Forwarding: '%s' from port %s" % (data, port)
     sock = socket(AF_INET, SOCK_DGRAM)
-    sock.bind(("localhost", port)) # Bind to the port data came in on
+    sock.bind(("0.0.0.0", port)) # Bind to the port data came in on
     sock.sendto(data, (targetHost, listenPort))
 
 def listen(host, port):
@@ -17,4 +17,4 @@ def listen(host, port):
         data, addr = listenSocket.recvfrom(bufsize)
         forward(data, addr[1]) # data and port
 
-listen("localhost", listenPort)
+listen("0.0.0.0", listenPort)
