@@ -7,6 +7,7 @@ import os
 # Settings
 bufsize = 1024 # Modify to suit your needs
 targetHost = "127.0.0.1" # Modify to remote Address OR LOOP WILL OCCUR!!!
+listenAddr = "0.0.0.0"
 listenPort = 2500
 pkts = 0
 if not os.path.exists('log'):
@@ -33,4 +34,4 @@ def listen(host, port):
         pkts += 1
         forward(data, addr) # data and port
 
-listen("0.0.0.0", listenPort)
+listen(listenAddr, listenPort)
