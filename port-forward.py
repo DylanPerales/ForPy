@@ -6,9 +6,10 @@ import os
 
 # Settings
 bufsize = 1024 # Modify to suit your needs
-targetHost = "127.0.0.1" # Modify to remote Address OR LOOP WILL OCCUR!!!
 listenAddr = "0.0.0.0"
 listenPort = 2500
+targetHost = "127.0.0.1" # Modify to remote Address OR LOOP WILL OCCUR!!!
+targetPort = 2500
 pkts = 0
 if not os.path.exists('log'):
     os.makedirs('log')
@@ -22,7 +23,7 @@ def forward(data, addr):
         f.write("%s - Pkt%s: Recieved: %s[%s] Forwarded to: %s\n" % (time.strftime('%Y%m%d %H:%m:%S'), pkts, addr[0], data, targetHost))
     sock = socket(AF_INET, SOCK_DGRAM)
     sock.bind(("0.0.0.0", addr[1])) # Bind to the port data came in on
-    sock.sendto(data, (targetHost, listenPort))
+    sock.sendto(data, (targetHost, targetPort))
 
 # Listen Method
 def listen(host, port):
